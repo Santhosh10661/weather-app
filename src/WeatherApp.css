@@ -1,0 +1,82 @@
+.weatherApp {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom left, #00a9ff, #3399ff);
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.weatherBoard {
+  background: linear-gradient(to bottom left, #89cff3, #00a9ff);
+  border-radius: 20px;
+  z-index: 2;
+}
+/* logo */
+.logoCon {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 120px;
+}
+.logo {
+  color: #ffffff;
+  font-size: 16px;
+}
+/* search */
+form {
+  background: #fff;
+  border-radius: 50px;
+  box-shadow: -0.2em 0.2em 0.5em 0em #1c90ca;
+}
+form input {
+  background: transparent;
+  outline: none;
+  border: none;
+  caret-color: #00a9ff;
+  color: #00a9ff;
+  font-weight: 500;
+}
+form button {
+  background: transparent;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+}
+
+/* content */
+.contentCon {
+  height: 350px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+.contentCon:empty {
+  height: 0;
+}
+.iconic {
+  width: 100px;
+  height: 100px;
+}
+
+/* footer */
+footer {
+  font-size: 14px;
+  padding-bottom: 0.5em;
+}
+.humidityIcon,
+.windIcon {
+  height: 2em;
+  width: 2em;
+}
+.arrow:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+.humidityIcon {
+  transform: scale(1.3);
+}
+.pressureIcon {
+  transform: scale(1.8);
+}
