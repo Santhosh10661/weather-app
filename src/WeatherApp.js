@@ -27,6 +27,7 @@ function WeatherApp() {
   let [wind, setWind] = useState([]);
   let [humidity, setHumidity] = useState([]);
   let [pressure, setPressure] = useState([]);
+  let [forecastList, setForecastList] = useState([]);
 
   let API_KEY = "75e7bef2f7d1c7a5c61779a83b61d589";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=Metric&appid=${API_KEY}`;
@@ -97,7 +98,6 @@ function WeatherApp() {
       changeIcon(iconValue);
       checkDate();
       setFetchError(null);
-      setLocation([]); /*<< return to default empty input */
     } catch (err) {
       switch (err.message) {
         case "Data Not Found":
@@ -111,6 +111,20 @@ function WeatherApp() {
       }
       setSearchLocate([]);
     } finally {
+    }
+    /*............................................ */
+    let forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=Metric&appid=${API_KEY}`;
+    try {
+      let fcResponse = await fetch(forecastURL);
+      if (!fcResponse.ok) throw new Error("Data Not Found");
+      let fcResult = await fcResponse.json();
+      let list = fcResult.list.slice(0, 10);
+
+      setForecastList(list);
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      setLocation([]); /*<< return to default empty input */
     }
   };
   return (
@@ -134,6 +148,7 @@ function WeatherApp() {
                 wind={wind}
                 humidity={humidity}
                 pressure={pressure}
+                forecastList={forecastList}
               />
             )}
           </div>

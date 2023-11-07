@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Footer from "./footer";
+import Forecast from "./forecast";
 
 function Content(props) {
   let {
@@ -11,27 +12,44 @@ function Content(props) {
     iconStatus,
     searchLocate,
     date,
+    forecastList,
   } = props;
 
-  let [isHide, setIsHide] = useState([true]);
-  const styled = {
+  let [isMoreHide, setIsMoreHide] = useState([true]);
+  let [isForecastHide, setIsForecastHide] = useState([true]);
+  const mainConStyle = {
     display: "flex",
-    flexDirection: isHide ? "column" : "row",
-    height: isHide ? "204px" : "104px",
+    flexDirection: !isMoreHide || !isForecastHide ? "row" : "column",
+    height: !isMoreHide || !isForecastHide ? "104px" : "204px",
     justifyContent: "center",
     alignItems: "center",
     transition: "0.5s ease",
   };
-  const tempMarginStyle = { margin: isHide ? " 0 0 0 0.2em" : "0" };
+  const tempMarginStyle = {
+    margin: isMoreHide && isForecastHide ? " 0 0 0 0.2em" : "0",
+  };
 
-  function handleHide() {
-    setIsHide(!isHide);
+  function handleMoreHide() {
+    if (!isForecastHide) {
+      setIsForecastHide(!isForecastHide);
+      setIsMoreHide(!isMoreHide);
+    } else {
+      setIsMoreHide(!isMoreHide);
+    }
+  }
+  function handleForecastHide() {
+    if (!isMoreHide) {
+      setIsMoreHide(!isMoreHide);
+      setIsForecastHide(!isForecastHide);
+    } else {
+      setIsForecastHide(!isForecastHide);
+    }
   }
   return (
     <>
       <main className="container my-3">
         <p className="m-0 col-12 h3 ">{date}</p>
-        <div className="mainCon container p-0" style={styled}>
+        <div className="mainCon container p-0" style={mainConStyle}>
           <div className="col-6">
             <img src={iconStatus} alt="" className="iconic" />
           </div>
@@ -40,6 +58,7 @@ function Content(props) {
             <sup>
               <small>&deg;</small>
             </sup>
+            <small>c</small>
           </h1>
         </div>
         <p className="m-0 col-12 text-uppercase h3 ">{searchLocate}</p>
@@ -47,10 +66,15 @@ function Content(props) {
       <Footer
         wind={wind}
         humidity={humidity}
-        isHide={isHide}
-        handleHide={handleHide}
+        isMoreHide={isMoreHide}
+        handleMoreHide={handleMoreHide}
         climateStatus={climateStatus}
         pressure={pressure}
+      />
+      <Forecast
+        forecastList={forecastList}
+        isForecastHide={isForecastHide}
+        handleForecastHide={handleForecastHide}
       />
     </>
   );
