@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/weather-app/static/css/main.e2f66690.css",
-    "main.js": "/weather-app/static/js/main.853e1071.js",
+    "main.css": "/weather-app/static/css/main.393322a5.css",
+    "main.js": "/weather-app/static/js/main.b363cff3.js",
     "static/media/snowflake-2657.svg": "/weather-app/static/media/snowflake-2657.499d85c8f4bf3d9a1aeccd5d5a5f7911.svg",
     "static/media/cloudy-day-1.svg": "/weather-app/static/media/cloudy-day-1.ea42104a38eafd19aa1bf8680be1628d.svg",
     "static/media/rainy-2.svg": "/weather-app/static/media/rainy-2.e60b405b1c5ada450b7aafadbd689df5.svg",
@@ -14,11 +14,11 @@
     "index.html": "/weather-app/index.html",
     "static/media/smog-solid.svg": "/weather-app/static/media/smog-solid.7cef33939153057e2bb6f9d12ee4a995.svg",
     "static/media/search-circle.svg": "/weather-app/static/media/search-circle.0dc0e0369b233916b457752750fce4d9.svg",
-    "main.e2f66690.css.map": "/weather-app/static/css/main.e2f66690.css.map",
-    "main.853e1071.js.map": "/weather-app/static/js/main.853e1071.js.map"
+    "main.393322a5.css.map": "/weather-app/static/css/main.393322a5.css.map",
+    "main.b363cff3.js.map": "/weather-app/static/js/main.b363cff3.js.map"
   },
   "entrypoints": [
-    "static/css/main.e2f66690.css",
-    "static/js/main.853e1071.js"
+    "static/css/main.393322a5.css",
+    "static/js/main.b363cff3.js"
   ]
 }
