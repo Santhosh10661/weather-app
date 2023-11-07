@@ -4,7 +4,7 @@ import { IoIosAdd, IoIosRemove } from "react-icons/io";
 function Forecast(props) {
   let { forecastList, isForecastHide, handleForecastHide } = props;
   const forecaststyle = {
-    flexDirection: "column",
+    flexDirection: isForecastHide ? "row" : "column",
     fontSize: "14px",
     height: isForecastHide ? "25px" : "120px",
     padding: isForecastHide ? "0px 8px" : "4px 8px",
