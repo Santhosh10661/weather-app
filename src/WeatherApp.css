@@ -92,7 +92,8 @@ footer {
   color: #00a9ff;
 }
 .forecastList {
-  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: scroll;
 }
 .forecastList::-webkit-scrollbar {
   display: none;
